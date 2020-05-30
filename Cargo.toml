@@ -18,4 +18,4 @@ datasets = []
 [dependencies]
 num = { version = "0.1.41", default-features = false }
 rand = "0.4.1"
-rulinalg = { git = "https://github.com/brosoft-io/rulinalg-serde", features = ["io"], branch = "dev"}
+rulinalg-serde = { git = "https://github.com/brosoft-io/rulinalg-serde", features = ["io"], branch = "dev"}
