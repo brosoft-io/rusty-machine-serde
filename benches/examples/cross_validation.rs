@@ -1,7 +1,7 @@
-use rusty_machine::linalg::{Matrix, BaseMatrix};
-use rusty_machine::learning::{LearningResult, SupModel};
-use rusty_machine::analysis::score::row_accuracy;
-use rusty_machine::analysis::cross_validation::k_fold_validate;
+use rusty_machine_serde::linalg_serde::{Matrix, BaseMatrix};
+use rusty_machine_serde::learning::{LearningResult, SupModel};
+use rusty_machine_serde::analysis::score::row_accuracy;
+use rusty_machine_serde::analysis::cross_validation::k_fold_validate;
 use rand::{thread_rng, Rng};
 use test::{Bencher, black_box};
 

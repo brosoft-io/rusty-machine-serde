@@ -1,11 +1,15 @@
 //! Bruteforce search implementations
-use linalg::{Matrix, BaseMatrix};
+
+extern crate serde;
+use self::serde::{Serialize, Deserialize};
+
+use linalg_serde::{Matrix, BaseMatrix};
 use learning::error::Error;
 
 use super::{KNearest, KNearestSearch, get_distances, dist};
 
 /// Perform brute-force search
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct BruteForce {
     data: Option<Matrix<f64>>,
 }
@@ -16,7 +20,7 @@ impl Default for BruteForce {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::BruteForce;
+    /// use rusty_machine_serde::learning::knn::BruteForce;
     /// let _ = BruteForce::default();
     /// ```
     fn default() -> Self {
@@ -33,7 +37,7 @@ impl BruteForce {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::BruteForce;
+    /// use rusty_machine_serde::learning::knn::BruteForce;
     /// let _ = BruteForce::new();
     /// ```
     pub fn new() -> Self {
@@ -76,7 +80,7 @@ impl KNearestSearch for BruteForce {
 #[cfg(test)]
 mod tests {
 
-    use linalg::Matrix;
+    use linalg_serde::Matrix;
     use super::super::KNearestSearch;
     use super::BruteForce;
 

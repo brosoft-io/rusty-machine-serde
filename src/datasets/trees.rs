@@ -1,5 +1,5 @@
-use rulinalg::matrix::Matrix;
-use rulinalg::vector::Vector;
+use rulinalg_serde::matrix::Matrix;
+use rulinalg_serde::vector::Vector;
 
 use super::Dataset;
 

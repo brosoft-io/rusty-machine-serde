@@ -5,10 +5,10 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::learning::gp;
-//! use rusty_machine::learning::SupModel;
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::linalg::Vector;
+//! use rusty_machine_serde::learning::gp;
+//! use rusty_machine_serde::learning::SupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::linalg_serde::Vector;
 //!
 //! let mut gaussp = gp::GaussianProcess::default();
 //! gaussp.noise = 10f64;
@@ -27,8 +27,8 @@
 //! a future release.
 
 use learning::toolkit::kernel::{Kernel, SquaredExp};
-use linalg::{Matrix, BaseMatrix, Decomposition, Cholesky};
-use linalg::Vector;
+use linalg_serde::{Matrix, BaseMatrix, Decomposition, Cholesky};
+use linalg_serde::Vector;
 use learning::{LearningResult, SupModel};
 use learning::error::{Error, ErrorKind};
 
@@ -102,8 +102,8 @@ impl<T: Kernel, U: MeanFunc> GaussianProcess<T, U> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::gp;
-    /// use rusty_machine::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::gp;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
     ///
     /// let ker = kernel::SquaredExp::default();
     /// let mean = gp::ConstMean::default();

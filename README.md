@@ -82,7 +82,7 @@ rusty-machine="0.5.4"
 And then import the library using:
 
 ```rust
-extern crate rusty_machine as rm;
+extern crate rusty_machine_serde as rm;
 ```
 
 The library consists of two core components. The linear algebra module and the learning module.

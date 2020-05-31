@@ -6,7 +6,7 @@ use std::error;
 use std::fmt;
 use std::marker::{Send, Sync};
 
-use rulinalg;
+use rulinalg_serde;
 
 /// An error related to the learning module.
 #[derive(Debug)]
@@ -57,9 +57,9 @@ impl Error {
     }
 }
 
-impl From<rulinalg::error::Error> for Error {
-    fn from(e: rulinalg::error::Error) -> Error {
-        Error::new(ErrorKind::LinearAlgebra, <rulinalg::error::Error as error::Error>::description(&e))
+impl From<rulinalg_serde::error::Error> for Error {
+    fn from(e: rulinalg_serde::error::Error) -> Error {
+        Error::new(ErrorKind::LinearAlgebra, <rulinalg_serde::error::Error as error::Error>::description(&e))
     }
 }
 

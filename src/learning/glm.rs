@@ -12,10 +12,10 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::learning::glm::{GenLinearModel, Bernoulli};
-//! use rusty_machine::learning::SupModel;
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::linalg::Vector;
+//! use rusty_machine_serde::learning::glm::{GenLinearModel, Bernoulli};
+//! use rusty_machine_serde::learning::SupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::linalg_serde::Vector;
 //!
 //! let inputs = Matrix::new(4,1,vec![1.0,3.0,5.0,7.0]);
 //! let targets = Vector::new(vec![0.,0.,1.,1.]);
@@ -35,8 +35,8 @@
 //! assert!(output[0] > 0.5, "Our classifier isn't very good!");
 //! ```
 
-use linalg::Vector;
-use linalg::{Matrix, BaseMatrix};
+use linalg_serde::Vector;
+use linalg_serde::{Matrix, BaseMatrix};
 
 use learning::{LearningResult, SupModel};
 use learning::error::{Error, ErrorKind};
@@ -59,8 +59,8 @@ impl<C: Criterion> GenLinearModel<C> {
     /// and the link function used by the GLM.
     ///
     /// ```
-    /// use rusty_machine::learning::glm::GenLinearModel;
-    /// use rusty_machine::learning::glm::Bernoulli;
+    /// use rusty_machine_serde::learning::glm::GenLinearModel;
+    /// use rusty_machine_serde::learning::glm::Bernoulli;
     ///
     /// let glm = GenLinearModel::new(Bernoulli);
     /// ```

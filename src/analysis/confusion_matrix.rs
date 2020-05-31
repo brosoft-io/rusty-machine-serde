@@ -2,7 +2,7 @@
 
 use std::hash::Hash;
 use std::collections::HashMap;
-use linalg::Matrix;
+use linalg_serde::Matrix;
 
 /// Returns a square matrix C where C_ij is the count of the samples which were
 /// predicted to lie in the class with jth label but actually lie in the class with
@@ -22,8 +22,8 @@ use linalg::Matrix;
 ///
 /// # Examples
 /// ```
-/// use rusty_machine::analysis::confusion_matrix::confusion_matrix;
-/// use rusty_machine::linalg::Matrix;
+/// use rusty_machine_serde::analysis::confusion_matrix::confusion_matrix;
+/// use rusty_machine_serde::linalg_serde::Matrix;
 ///
 /// let truth       = vec![2, 0, 2, 2, 0, 1];
 /// let predictions = vec![0, 0, 2, 2, 0, 2];

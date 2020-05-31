@@ -9,10 +9,10 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::learning::lin_reg::LinRegressor;
-//! use rusty_machine::learning::SupModel;
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::linalg::Vector;
+//! use rusty_machine_serde::learning::lin_reg::LinRegressor;
+//! use rusty_machine_serde::learning::SupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::linalg_serde::Vector;
 //!
 //! let inputs = Matrix::new(4,1,vec![1.0,3.0,5.0,7.0]);
 //! let targets = Vector::new(vec![1.,5.,9.,13.]);
@@ -30,8 +30,8 @@
 //! assert!(output[0] > 17f64, "Our regressor isn't very good!");
 //! ```
 
-use linalg::{Matrix, BaseMatrix};
-use linalg::Vector;
+use linalg_serde::{Matrix, BaseMatrix};
+use linalg_serde::Vector;
 use learning::{LearningResult, SupModel};
 use learning::toolkit::cost_fn::CostFunc;
 use learning::toolkit::cost_fn::MeanSqError;
@@ -71,10 +71,10 @@ impl SupModel<Matrix<f64>, Vector<f64>> for LinRegressor {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::lin_reg::LinRegressor;
-    /// use rusty_machine::linalg::Matrix;
-    /// use rusty_machine::linalg::Vector;
-    /// use rusty_machine::learning::SupModel;
+    /// use rusty_machine_serde::learning::lin_reg::LinRegressor;
+    /// use rusty_machine_serde::linalg_serde::Matrix;
+    /// use rusty_machine_serde::linalg_serde::Vector;
+    /// use rusty_machine_serde::learning::SupModel;
     ///
     /// let mut lin_mod = LinRegressor::default();
     /// let inputs = Matrix::new(3,1, vec![2.0, 3.0, 4.0]);
@@ -131,10 +131,10 @@ impl LinRegressor {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::lin_reg::LinRegressor;
-    /// use rusty_machine::learning::SupModel;
-    /// use rusty_machine::linalg::Matrix;
-    /// use rusty_machine::linalg::Vector;
+    /// use rusty_machine_serde::learning::lin_reg::LinRegressor;
+    /// use rusty_machine_serde::learning::SupModel;
+    /// use rusty_machine_serde::linalg_serde::Matrix;
+    /// use rusty_machine_serde::linalg_serde::Vector;
     ///
     /// let inputs = Matrix::new(4,1,vec![1.0,3.0,5.0,7.0]);
     /// let targets = Vector::new(vec![1.,5.,9.,13.]);

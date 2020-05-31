@@ -53,12 +53,12 @@
 //! Here is an example usage for Gaussian Process Regression:
 //!
 //! ```
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::linalg::Vector;
-//! use rusty_machine::learning::gp::GaussianProcess;
-//! use rusty_machine::learning::gp::ConstMean;
-//! use rusty_machine::learning::toolkit::kernel;
-//! use rusty_machine::learning::SupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::linalg_serde::Vector;
+//! use rusty_machine_serde::learning::gp::GaussianProcess;
+//! use rusty_machine_serde::learning::gp::ConstMean;
+//! use rusty_machine_serde::learning::toolkit::kernel;
+//! use rusty_machine_serde::learning::SupModel;
 //!
 //! // First we'll get some data.
 //!
@@ -99,7 +99,7 @@
 //! We can remove some of these by utilizing the `prelude`:
 //!
 //! ```
-//! use rusty_machine::prelude::*;
+//! use rusty_machine_serde::prelude::*;
 //!
 //! let _ = Matrix::new(2,2,vec![2.0;4]);
 //! ```
@@ -107,8 +107,7 @@
 #![deny(missing_docs)]
 #![warn(missing_debug_implementations)]
 
-#[macro_use]
-extern crate rulinalg;
+#[macro_use] extern crate rulinalg_serde;
 extern crate num as libnum;
 extern crate rand;
 
@@ -117,11 +116,11 @@ pub mod prelude;
 /// The linear algebra module
 ///
 /// This module contains reexports of common tools from the rulinalg crate.
-pub mod linalg {
-    pub use rulinalg::matrix::{Axes, Matrix, MatrixSlice, MatrixSliceMut, BaseMatrix, BaseMatrixMut};
-    pub use rulinalg::vector::Vector;
-    pub use rulinalg::norm;
-    pub use rulinalg::matrix::decomposition::*;
+pub mod linalg_serde {
+    pub use rulinalg_serde::matrix::{Axes, Matrix, MatrixSlice, MatrixSliceMut, BaseMatrix, BaseMatrixMut};
+    pub use rulinalg_serde::vector::Vector;
+    pub use rulinalg_serde::norm;
+    pub use rulinalg_serde::matrix::decomposition::*;
 }
 
 /// Module for data handling

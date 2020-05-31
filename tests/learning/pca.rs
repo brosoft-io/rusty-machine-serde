@@ -1,4 +1,4 @@
-use rm::linalg::Matrix;
+use rm::linalg_serde::Matrix;
 use rm::learning::UnSupModel;
 use rm::learning::pca::PCA;
 

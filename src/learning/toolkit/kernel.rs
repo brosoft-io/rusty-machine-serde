@@ -4,9 +4,9 @@
 
 use std::ops::{Add, Mul};
 
-use linalg::Vector;
-use linalg::norm::{Euclidean, VectorNorm, VectorMetric};
-use rulinalg::utils;
+use linalg_serde::Vector;
+use linalg_serde::norm::{Euclidean, VectorNorm, VectorMetric};
+use rulinalg_serde::utils;
 
 /// The Kernel trait
 ///
@@ -30,7 +30,7 @@ pub trait Kernel {
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::learning::toolkit::kernel::{Kernel, Polynomial, HyperTan, KernelArith};
+/// use rusty_machine_serde::learning::toolkit::kernel::{Kernel, Polynomial, HyperTan, KernelArith};
 ///
 /// let poly_ker = Polynomial::new(1f64,2f64,3f64);
 /// let hypert_ker = HyperTan::new(1f64,2.5);
@@ -71,7 +71,7 @@ impl<T, U> Kernel for KernelSum<T, U>
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::learning::toolkit::kernel::{Kernel, Polynomial, HyperTan, KernelArith};
+/// use rusty_machine_serde::learning::toolkit::kernel::{Kernel, Polynomial, HyperTan, KernelArith};
 ///
 /// let poly_ker = Polynomial::new(1f64,2f64,3f64);
 /// let hypert_ker = HyperTan::new(1f64,2.5);
@@ -141,8 +141,8 @@ impl Linear {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// let ker = kernel::Linear::new(5.0);
     ///
@@ -189,8 +189,8 @@ impl Polynomial {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// // Constructs a new polynomial with alpha = 1, c = 0, d = 2.
     /// let ker = kernel::Polynomial::new(1.0, 0.0, 2.0);
@@ -250,8 +250,8 @@ impl SquaredExp {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// // Construct a kernel with lengthscale 2 and amplitude 1.
     /// let ker = kernel::SquaredExp::new(2f64, 1f64);
@@ -289,7 +289,7 @@ impl Kernel for SquaredExp {
         let diff = Vector::new(x1.to_vec()) - Vector::new(x2.to_vec());
 
         let x = -diff.dot(&diff) / (2f64 * self.ls * self.ls);
-        (self.ampl * x.exp())
+        self.ampl * x.exp()
     }
 }
 
@@ -312,8 +312,8 @@ impl Exponential {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// // Construct a kernel with lengthscale 2 and amplitude 1.
     /// let ker = kernel::Exponential::new(2f64, 1f64);
@@ -351,7 +351,7 @@ impl Kernel for Exponential {
         let diff = Vector::new(x1.to_vec()) - Vector::new(x2.to_vec());
 
         let x = -Euclidean.norm(&diff) / (2f64 * self.ls * self.ls);
-        (self.ampl * x.exp())
+        self.ampl * x.exp()
     }
 }
 
@@ -372,8 +372,8 @@ impl HyperTan {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// // Construct a kernel with alpha = 1, c = 2.
     /// let ker = kernel::HyperTan::new(1.0, 2.0);
@@ -424,8 +424,8 @@ impl Multiquadric {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// // Construct a kernel with c = 2.
     /// let ker = kernel::Multiquadric::new(2.0);
@@ -473,8 +473,8 @@ impl RationalQuadratic {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::toolkit::kernel;
-    /// use rusty_machine::learning::toolkit::kernel::Kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel;
+    /// use rusty_machine_serde::learning::toolkit::kernel::Kernel;
     ///
     /// // Construct a kernel with alpha = 2, ls = 2.
     /// let ker = kernel::RationalQuadratic::new(2.0, 2.0);

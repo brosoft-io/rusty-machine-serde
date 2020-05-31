@@ -14,8 +14,8 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::data::transforms::{Transformer, Normalizer};
-//! use rusty_machine::linalg::Matrix;
+//! use rusty_machine_serde::data::transforms::{Transformer, Normalizer};
+//! use rusty_machine_serde::linalg_serde::Matrix;
 //!
 //! // Constructs a new `Normalizer`
 //! let mut transformer = Normalizer::default();
@@ -27,8 +27,8 @@
 //! ```
 
 use learning::error::{Error, ErrorKind};
-use linalg::{Matrix, MatrixSlice, BaseMatrix, BaseMatrixMut};
-use rulinalg::norm::{MatrixNorm, Euclidean};
+use linalg_serde::{Matrix, MatrixSlice, BaseMatrix, BaseMatrixMut};
+use rulinalg_serde::norm::{MatrixNorm, Euclidean};
 
 use super::Transformer;
 
@@ -70,8 +70,8 @@ impl<T: Float, M> Normalizer<T, M>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::data::transforms::Normalizer;
-    /// use rusty_machine::linalg::norm::Euclidean;
+    /// use rusty_machine_serde::data::transforms::Normalizer;
+    /// use rusty_machine_serde::linalg_serde::norm::Euclidean;
     ///
     /// // Constructs a new `Normalizer`
     /// let _ = Normalizer::<f64, Euclidean>::new(Euclidean);
@@ -108,7 +108,7 @@ impl<T: Float, M> Transformer<Matrix<T>> for Normalizer<T, M>
 mod tests {
     use super::*;
     use super::super::Transformer;
-    use linalg::Matrix;
+    use linalg_serde::Matrix;
 
     use std::f64;
 

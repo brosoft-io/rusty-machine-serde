@@ -19,9 +19,9 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::learning::dbscan::DBSCAN;
-//! use rusty_machine::learning::UnSupModel;
-//! use rusty_machine::linalg::Matrix;
+//! use rusty_machine_serde::learning::dbscan::DBSCAN;
+//! use rusty_machine_serde::learning::UnSupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
 //!
 //! let inputs = Matrix::new(6, 2, vec![1.0, 2.0,
 //!                                     1.1, 2.2,
@@ -39,9 +39,9 @@
 use learning::{LearningResult, UnSupModel};
 use learning::error::{Error, ErrorKind};
 
-use linalg::{Matrix, Vector, BaseMatrix};
-use rulinalg::utils;
-use rulinalg::matrix::Row;
+use linalg_serde::{Matrix, Vector, BaseMatrix};
+use rulinalg_serde::utils;
+use rulinalg_serde::matrix::Row;
 
 /// DBSCAN Model
 ///
@@ -229,7 +229,7 @@ impl DBSCAN {
 #[cfg(test)]
 mod tests {
     use super::DBSCAN;
-    use linalg::{Matrix, BaseMatrix};
+    use linalg_serde::{Matrix, BaseMatrix};
 
     #[test]
     fn test_region_query() {

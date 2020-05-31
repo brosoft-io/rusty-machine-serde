@@ -29,7 +29,7 @@
 //! - Length hard defaults to the max iterations.
 
 use learning::optim::{Optimizable, OptimAlgorithm};
-use linalg::Vector;
+use linalg_serde::Vector;
 
 use std::cmp;
 use std::f64;

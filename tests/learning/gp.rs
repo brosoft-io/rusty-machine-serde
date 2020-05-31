@@ -1,5 +1,5 @@
-use rm::linalg::Matrix;
-use rm::linalg::Vector;
+use rm::linalg_serde::Matrix;
+use rm::linalg_serde::Vector;
 use rm::learning::SupModel;
 use rm::learning::gp::GaussianProcess;
 

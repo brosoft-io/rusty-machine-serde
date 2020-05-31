@@ -4,7 +4,7 @@
 
 use libnum::{Zero, One};
 
-use linalg::{BaseMatrix, Matrix};
+use linalg_serde::{BaseMatrix, Matrix};
 use learning::toolkit::cost_fn::{CostFunc, MeanSqError};
 
 // ************************************
@@ -21,7 +21,7 @@ use learning::toolkit::cost_fn::{CostFunc, MeanSqError};
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::analysis::score::accuracy;
+/// use rusty_machine_serde::analysis::score::accuracy;
 /// let outputs = [1, 1, 1, 0, 0, 0];
 /// let targets = [1, 1, 0, 0, 1, 1];
 ///
@@ -64,7 +64,7 @@ pub fn row_accuracy(outputs: &Matrix<f64>, targets: &Matrix<f64>) -> f64 {
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::analysis::score::precision;
+/// use rusty_machine_serde::analysis::score::precision;
 /// let outputs = [1, 1, 1, 0, 0, 0];
 /// let targets = [1, 1, 0, 0, 1, 1];
 ///
@@ -112,7 +112,7 @@ pub fn precision<'a, I, T>(outputs: I, targets: I) -> f64
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::analysis::score::recall;
+/// use rusty_machine_serde::analysis::score::recall;
 /// let outputs = [1, 1, 1, 0, 0, 0];
 /// let targets = [1, 1, 0, 0, 1, 1];
 ///
@@ -160,7 +160,7 @@ pub fn recall<'a, I, T>(outputs: I, targets: I) -> f64
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::analysis::score::f1;
+/// use rusty_machine_serde::analysis::score::f1;
 /// let outputs = [1, 1, 1, 0, 0, 0];
 /// let targets = [1, 1, 0, 0, 1, 1];
 ///
@@ -213,7 +213,7 @@ pub fn neg_mean_squared_error(outputs: &Matrix<f64>, targets: &Matrix<f64>) -> f
 
 #[cfg(test)]
 mod tests {
-    use linalg::Matrix;
+    use linalg_serde::Matrix;
     use super::{accuracy, precision, recall, f1, neg_mean_squared_error};
 
     #[test]

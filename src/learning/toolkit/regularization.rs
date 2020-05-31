@@ -9,13 +9,13 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::learning::toolkit::regularization::Regularization;
+//! use rusty_machine_serde::learning::toolkit::regularization::Regularization;
 //!
 //! let reg = Regularization::L1(0.5);
 //! ```
 
-use linalg::norm::{Euclidean, Lp, MatrixNorm};
-use linalg::{Matrix, MatrixSlice, BaseMatrix};
+use linalg_serde::norm::{Euclidean, Lp, MatrixNorm};
+use linalg_serde::{Matrix, MatrixSlice, BaseMatrix};
 use libnum::{FromPrimitive, Float};
 
 /// Model Regularization
@@ -87,8 +87,8 @@ impl<T: Float + FromPrimitive> Regularization<T> {
 #[cfg(test)]
 mod tests {
     use super::Regularization;
-    use linalg::{Matrix, BaseMatrix};
-    use linalg::norm::{Euclidean, MatrixNorm};
+    use linalg_serde::{Matrix, BaseMatrix};
+    use linalg_serde::norm::{Euclidean, MatrixNorm};
 
     #[test]
     fn test_no_reg() {

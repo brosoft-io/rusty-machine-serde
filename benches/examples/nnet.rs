@@ -3,13 +3,13 @@ use test::{Bencher, black_box};
 use rand::{random, Closed01};
 use std::vec::Vec;
 
-use rusty_machine::learning::nnet::{NeuralNet, BCECriterion};
-use rusty_machine::learning::toolkit::regularization::Regularization;
-use rusty_machine::learning::toolkit::activ_fn::Sigmoid;
-use rusty_machine::learning::optim::grad_desc::StochasticGD;
+use rusty_machine_serde::learning::nnet::{NeuralNet, BCECriterion};
+use rusty_machine_serde::learning::toolkit::regularization::Regularization;
+use rusty_machine_serde::learning::toolkit::activ_fn::Sigmoid;
+use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
 
-use rusty_machine::linalg::Matrix;
-use rusty_machine::learning::SupModel;
+use rusty_machine_serde::linalg_serde::Matrix;
+use rusty_machine_serde::learning::SupModel;
 
 fn generate_data() -> (Matrix<f64>, Matrix<f64>, Matrix<f64>) {
     const THRESHOLD: f64 = 0.7;

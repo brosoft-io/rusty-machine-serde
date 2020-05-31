@@ -10,8 +10,8 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::data::transforms::{Transformer, TransformFitter, MinMaxFitter};
-//! use rusty_machine::linalg::Matrix;
+//! use rusty_machine_serde::data::transforms::{Transformer, TransformFitter, MinMaxFitter};
+//! use rusty_machine_serde::linalg_serde::Matrix;
 //!
 //! let inputs = Matrix::new(2, 2, vec![-1.0, 2.0, 1.5, 3.0]);
 //!
@@ -27,10 +27,10 @@
 
 use learning::error::{Error, ErrorKind};
 use learning::LearningResult;
-use linalg::{Matrix, BaseMatrix, BaseMatrixMut, Vector};
+use linalg_serde::{Matrix, BaseMatrix, BaseMatrixMut, Vector};
 use super::{Invertible, Transformer, TransformFitter};
 
-use rulinalg::utils;
+use rulinalg_serde::utils;
 
 use libnum::Float;
 
@@ -60,14 +60,14 @@ impl<T: Float> MinMaxFitter<T> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::data::transforms::MinMaxFitter;
-    /// use rusty_machine::linalg::Matrix;
+    /// use rusty_machine_serde::data::transforms::MinMaxFitter;
+    /// use rusty_machine_serde::linalg_serde::Matrix;
     ///
     /// let fitter = MinMaxFitter::new(0.0, 1.0);
     ///
     /// // We can call `fit` from the `transform::TransformFitter`
     /// // trait to create a `MinMaxScaler` used to actually transform data.
-    /// use rusty_machine::data::transforms::TransformFitter;
+    /// use rusty_machine_serde::data::transforms::TransformFitter;
     /// let mat = Matrix::new(2,2,vec![1.0, 2.0, 3.0, 5.0]);
     /// let transformer = fitter.fit(&mat);
     /// ```
@@ -192,7 +192,7 @@ impl<T: Float> Invertible<Matrix<T>> for MinMaxScaler<T> {
 mod tests {
     use super::*;
     use super::super::{Transformer, TransformFitter, Invertible};
-    use linalg::Matrix;
+    use linalg_serde::Matrix;
     use std::f64;
 
     #[test]

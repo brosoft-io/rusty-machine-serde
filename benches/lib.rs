@@ -1,6 +1,6 @@
 #![feature(test)]
 
-extern crate rusty_machine;
+extern crate rusty_machine_serde;
 extern crate test;
 extern crate rand;
 
