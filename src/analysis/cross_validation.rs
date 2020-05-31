@@ -3,7 +3,7 @@
 use std::cmp;
 use std::iter::Chain;
 use std::slice::Iter;
-use linalg::{BaseMatrix, Matrix};
+use linalg_serde::{BaseMatrix, Matrix};
 use learning::{LearningResult, SupModel};
 use learning::toolkit::rand_utils::in_place_fisher_yates;
 
@@ -20,10 +20,10 @@ use learning::toolkit::rand_utils::in_place_fisher_yates;
 ///
 /// # Examples
 /// ```
-/// use rusty_machine::analysis::cross_validation::k_fold_validate;
-/// use rusty_machine::analysis::score::row_accuracy;
-/// use rusty_machine::learning::naive_bayes::{NaiveBayes, Bernoulli};
-/// use rusty_machine::linalg::{BaseMatrix, Matrix};
+/// use rusty_machine_serde::analysis::cross_validation::k_fold_validate;
+/// use rusty_machine_serde::analysis::score::row_accuracy;
+/// use rusty_machine_serde::learning::naive_bayes::{NaiveBayes, Bernoulli};
+/// use rusty_machine_serde::linalg_serde::{BaseMatrix, Matrix};
 ///
 /// let inputs = Matrix::new(3, 2, vec![1.0, 1.1,
 ///                                     5.2, 4.3,

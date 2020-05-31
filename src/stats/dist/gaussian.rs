@@ -74,9 +74,9 @@ impl Distribution<f64> for Gaussian {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::stats::dist::Gaussian;
-    /// use rusty_machine::stats::dist::Distribution;
-    /// use rusty_machine::stats::dist::consts;
+    /// use rusty_machine_serde::stats::dist::Gaussian;
+    /// use rusty_machine_serde::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::consts;
     ///
     /// let gauss = Gaussian::default();
     ///
@@ -95,9 +95,9 @@ impl Distribution<f64> for Gaussian {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::stats::dist::Gaussian;
-    /// use rusty_machine::stats::dist::Distribution;
-    /// use rusty_machine::stats::dist::consts;
+    /// use rusty_machine_serde::stats::dist::Gaussian;
+    /// use rusty_machine_serde::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::consts;
     ///
     /// let gauss = Gaussian::default();
     ///
@@ -117,8 +117,8 @@ impl Distribution<f64> for Gaussian {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::stats::dist::Gaussian;
-    /// use rusty_machine::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::Gaussian;
+    /// use rusty_machine_serde::stats::dist::Distribution;
     ///
     /// let gauss = Gaussian::new(10f64, 5f64);
     /// let cdf_mid = gauss.cdf(10f64);
@@ -129,8 +129,8 @@ impl Distribution<f64> for Gaussian {
     /// A slightly more involved test:
     ///
     /// ```
-    /// use rusty_machine::stats::dist::Gaussian;
-    /// use rusty_machine::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::Gaussian;
+    /// use rusty_machine_serde::stats::dist::Distribution;
     ///
     /// let gauss = Gaussian::new(10f64, 4f64);
     /// let cdf = gauss.cdf(9f64);

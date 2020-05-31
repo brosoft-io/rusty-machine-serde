@@ -9,10 +9,10 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::learning::logistic_reg::LogisticRegressor;
-//! use rusty_machine::learning::SupModel;
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::linalg::Vector;
+//! use rusty_machine_serde::learning::logistic_reg::LogisticRegressor;
+//! use rusty_machine_serde::learning::SupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::linalg_serde::Vector;
 //!
 //! let inputs = Matrix::new(4,1,vec![1.0,3.0,5.0,7.0]);
 //! let targets = Vector::new(vec![0.,0.,1.,1.]);
@@ -34,8 +34,8 @@
 //! by using the `new` constructor instead. This allows us to provide
 //! a `GradientDesc` object with custom parameters.
 
-use linalg::{Matrix, BaseMatrix};
-use linalg::Vector;
+use linalg_serde::{Matrix, BaseMatrix};
+use linalg_serde::Vector;
 use learning::{LearningResult, SupModel};
 use learning::toolkit::activ_fn::{ActivationFunc, Sigmoid};
 use learning::toolkit::cost_fn::{CostFunc, CrossEntropyError};
@@ -71,8 +71,8 @@ impl<A: OptimAlgorithm<BaseLogisticRegressor>> LogisticRegressor<A> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::logistic_reg::LogisticRegressor;
-    /// use rusty_machine::learning::optim::grad_desc::GradientDesc;
+    /// use rusty_machine_serde::learning::logistic_reg::LogisticRegressor;
+    /// use rusty_machine_serde::learning::optim::grad_desc::GradientDesc;
     ///
     /// let gd = GradientDesc::default();
     /// let mut logistic_mod = LogisticRegressor::new(gd);
@@ -102,10 +102,10 @@ impl<A> SupModel<Matrix<f64>, Vector<f64>> for LogisticRegressor<A>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::logistic_reg::LogisticRegressor;
-    /// use rusty_machine::linalg::Matrix;
-    /// use rusty_machine::linalg::Vector;
-    /// use rusty_machine::learning::SupModel;
+    /// use rusty_machine_serde::learning::logistic_reg::LogisticRegressor;
+    /// use rusty_machine_serde::linalg_serde::Matrix;
+    /// use rusty_machine_serde::linalg_serde::Vector;
+    /// use rusty_machine_serde::learning::SupModel;
     ///
     /// let mut logistic_mod = LogisticRegressor::default();
     /// let inputs = Matrix::new(3,2, vec![1.0, 2.0, 1.0, 3.0, 1.0, 4.0]);

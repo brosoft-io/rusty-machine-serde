@@ -45,8 +45,8 @@ impl Distribution<f64> for Exponential {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::stats::dist::Exponential;
-    /// use rusty_machine::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::Exponential;
+    /// use rusty_machine_serde::stats::dist::Distribution;
     ///
     /// // Construct an exponential with lambda parameter 7.0.
     /// let exp = Exponential::new(7f64);
@@ -65,8 +65,8 @@ impl Distribution<f64> for Exponential {
     ///
     /// ```
     /// // Construct an exponential with lambda parameter 5.0.
-    /// use rusty_machine::stats::dist::Exponential;
-    /// use rusty_machine::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::Exponential;
+    /// use rusty_machine_serde::stats::dist::Distribution;
     ///
     /// // Construct an exponential with lambda parameter 5.0.
     /// let exp = Exponential::new(5f64);
@@ -86,8 +86,8 @@ impl Distribution<f64> for Exponential {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::stats::dist::Exponential;
-    /// use rusty_machine::stats::dist::Distribution;
+    /// use rusty_machine_serde::stats::dist::Exponential;
+    /// use rusty_machine_serde::stats::dist::Distribution;
     ///
     /// // Construct an exponential with lambda parameter 5.0.
     /// let exp = Exponential::new(5f64);

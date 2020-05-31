@@ -1,10 +1,10 @@
-extern crate rusty_machine as rm;
+extern crate rusty_machine_serde as rm;
 
 #[cfg(feature = "datasets")]
 pub mod test {
 
     use rm::datasets;
-    use rm::linalg::BaseMatrix;
+    use rm::linalg_serde::BaseMatrix;
 
     #[test]
     fn test_iris() {

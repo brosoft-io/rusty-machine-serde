@@ -5,12 +5,12 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::learning::nnet::{NeuralNet, BCECriterion};
-//! use rusty_machine::learning::toolkit::regularization::Regularization;
-//! use rusty_machine::learning::toolkit::activ_fn::Sigmoid;
-//! use rusty_machine::learning::optim::grad_desc::StochasticGD;
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::learning::SupModel;
+//! use rusty_machine_serde::learning::nnet::{NeuralNet, BCECriterion};
+//! use rusty_machine_serde::learning::toolkit::regularization::Regularization;
+//! use rusty_machine_serde::learning::toolkit::activ_fn::Sigmoid;
+//! use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::learning::SupModel;
 //!
 //! let inputs = Matrix::new(5,3, vec![1.,1.,1.,2.,2.,2.,3.,3.,3.,
 //!                                 4.,4.,4.,5.,5.,5.,]);
@@ -45,8 +45,8 @@
 
 pub mod net_layer;
 
-use linalg::{Matrix, MatrixSlice};
-use rulinalg::utils;
+use linalg_serde::{Matrix, MatrixSlice};
+use rulinalg_serde::utils;
 
 use learning::{LearningResult, SupModel};
 use learning::error::{Error, ErrorKind};
@@ -104,7 +104,7 @@ impl NeuralNet<BCECriterion, StochasticGD> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::nnet::NeuralNet;
+    /// use rusty_machine_serde::learning::nnet::NeuralNet;
     ///
     /// // Create a neural net with 4 layers, 3 neurons in each.
     /// let layers = &[3; 4];
@@ -127,9 +127,9 @@ impl<T, A> NeuralNet<T, A>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::nnet::BCECriterion;
-    /// use rusty_machine::learning::nnet::NeuralNet;
-    /// use rusty_machine::learning::optim::grad_desc::StochasticGD;
+    /// use rusty_machine_serde::learning::nnet::BCECriterion;
+    /// use rusty_machine_serde::learning::nnet::NeuralNet;
+    /// use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
     ///
     /// // Create a an empty neural net
     /// let mut net = NeuralNet::new(BCECriterion::default(), StochasticGD::default());
@@ -151,10 +151,10 @@ impl<T, A> NeuralNet<T, A>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::nnet::BCECriterion;
-    /// use rusty_machine::learning::nnet::NeuralNet;
-    /// use rusty_machine::learning::toolkit::activ_fn::Sigmoid;
-    /// use rusty_machine::learning::optim::grad_desc::StochasticGD;
+    /// use rusty_machine_serde::learning::nnet::BCECriterion;
+    /// use rusty_machine_serde::learning::nnet::NeuralNet;
+    /// use rusty_machine_serde::learning::toolkit::activ_fn::Sigmoid;
+    /// use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
     ///
     /// // Create a neural net with 4 layers, 3 neurons in each.
     /// let layers = &[3; 4];
@@ -173,11 +173,11 @@ impl<T, A> NeuralNet<T, A>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::linalg::BaseMatrix;
-    /// use rusty_machine::learning::nnet::BCECriterion;
-    /// use rusty_machine::learning::nnet::NeuralNet;
-    /// use rusty_machine::learning::nnet::net_layer::Linear;
-    /// use rusty_machine::learning::optim::grad_desc::StochasticGD;
+    /// use rusty_machine_serde::linalg_serde::BaseMatrix;
+    /// use rusty_machine_serde::learning::nnet::BCECriterion;
+    /// use rusty_machine_serde::learning::nnet::NeuralNet;
+    /// use rusty_machine_serde::learning::nnet::net_layer::Linear;
+    /// use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
     ///
     /// // Create a new neural net 
     /// let mut net = NeuralNet::new(BCECriterion::default(), StochasticGD::default());
@@ -197,12 +197,12 @@ impl<T, A> NeuralNet<T, A>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::linalg::BaseMatrix;
-    /// use rusty_machine::learning::nnet::BCECriterion;
-    /// use rusty_machine::learning::nnet::NeuralNet;
-    /// use rusty_machine::learning::nnet::net_layer::{NetLayer, Linear};
-    /// use rusty_machine::learning::toolkit::activ_fn::Sigmoid;
-    /// use rusty_machine::learning::optim::grad_desc::StochasticGD;
+    /// use rusty_machine_serde::linalg_serde::BaseMatrix;
+    /// use rusty_machine_serde::learning::nnet::BCECriterion;
+    /// use rusty_machine_serde::learning::nnet::NeuralNet;
+    /// use rusty_machine_serde::learning::nnet::net_layer::{NetLayer, Linear};
+    /// use rusty_machine_serde::learning::toolkit::activ_fn::Sigmoid;
+    /// use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
     ///
     /// // Create a new neural net 
     /// let mut net = NeuralNet::new(BCECriterion::default(), StochasticGD::default());
@@ -223,8 +223,8 @@ impl<T, A> NeuralNet<T, A>
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::linalg::BaseMatrix;
-    /// use rusty_machine::learning::nnet::NeuralNet;
+    /// use rusty_machine_serde::linalg_serde::BaseMatrix;
+    /// use rusty_machine_serde::learning::nnet::NeuralNet;
     ///
     /// // Create a neural net with 4 layers, 3 neurons in each.
     /// let layers = &[3; 4];
@@ -535,8 +535,8 @@ impl BCECriterion {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::nnet::BCECriterion;
-    /// use rusty_machine::learning::toolkit::regularization::Regularization;
+    /// use rusty_machine_serde::learning::nnet::BCECriterion;
+    /// use rusty_machine_serde::learning::toolkit::regularization::Regularization;
     ///
     /// // Create a new BCE criterion with L2 regularization of 0.3.
     /// let criterion = BCECriterion::new(Regularization::L2(0.3f64));
@@ -576,8 +576,8 @@ impl MSECriterion {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::nnet::MSECriterion;
-    /// use rusty_machine::learning::toolkit::regularization::Regularization;
+    /// use rusty_machine_serde::learning::nnet::MSECriterion;
+    /// use rusty_machine_serde::learning::toolkit::regularization::Regularization;
     ///
     /// // Create a new MSE criterion with L2 regularization of 0.3.
     /// let criterion = MSECriterion::new(Regularization::L2(0.3f64));

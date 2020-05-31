@@ -8,8 +8,8 @@
 //! You can also create your own custom cost functions for use in your models.
 //! Just create a struct implementing the `CostFunc` trait.
 
-use linalg::{Matrix, BaseMatrix, BaseMatrixMut};
-use linalg::Vector;
+use linalg_serde::{Matrix, BaseMatrix, BaseMatrixMut};
+use linalg_serde::Vector;
 
 /// Trait for cost functions in models.
 pub trait CostFunc<T> {

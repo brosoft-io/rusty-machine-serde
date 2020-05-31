@@ -13,9 +13,9 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::data::transforms::{Transformer, TransformFitter, MinMaxFitter};
-//! use rusty_machine::data::transforms::minmax::MinMaxScaler;
-//! use rusty_machine::linalg::Matrix;
+//! use rusty_machine_serde::data::transforms::{Transformer, TransformFitter, MinMaxFitter};
+//! use rusty_machine_serde::data::transforms::minmax::MinMaxScaler;
+//! use rusty_machine_serde::linalg_serde::Matrix;
 //!
 //! // Some data that we want to scale between 0 and 1
 //! let data = Matrix::new(3, 2, vec![-1.5, 1.0, 2.0, 3.0, -1.0, 2.5]);

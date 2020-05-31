@@ -6,7 +6,7 @@
 use rand::{Rng, thread_rng};
 
 /// ```
-/// use rusty_machine::learning::toolkit::rand_utils;
+/// use rusty_machine_serde::learning::toolkit::rand_utils;
 ///
 /// let mut pool = &mut [1,2,3,4];
 /// let sample = rand_utils::reservoir_sample(pool, 3);
@@ -45,7 +45,7 @@ pub fn reservoir_sample<T: Copy>(pool: &[T], reservoir_size: usize) -> Vec<T> {
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::learning::toolkit::rand_utils;
+/// use rusty_machine_serde::learning::toolkit::rand_utils;
 ///
 /// // Collect the numbers 0..5
 /// let a = (0..5).collect::<Vec<_>>();
@@ -88,7 +88,7 @@ pub fn fisher_yates<T: Copy>(arr: &[T]) -> Vec<T> {
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::learning::toolkit::rand_utils;
+/// use rusty_machine_serde::learning::toolkit::rand_utils;
 ///
 /// // Collect the numbers 0..5
 /// let mut a = (0..5).collect::<Vec<_>>();

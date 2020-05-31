@@ -6,10 +6,10 @@
 //! # Usage
 //!
 //! ```
-//! # #[macro_use] extern crate rulinalg; extern crate rusty_machine; fn main() {
-//! use rusty_machine::learning::knn::KNNClassifier;
-//! use rusty_machine::learning::SupModel;
-//! use rusty_machine::linalg::Vector;
+//! # #[macro_use] extern crate rulinalg_serde; extern crate rusty_machine_serde; fn main() {
+//! use rusty_machine_serde::learning::knn::KNNClassifier;
+//! use rusty_machine_serde::learning::SupModel;
+//! use rusty_machine_serde::linalg_serde::Vector;
 //!
 //! let data = matrix![1., 1., 1.;
 //!                    1., 2., 3.;
@@ -29,9 +29,12 @@
 use std::f64;
 use std::collections::BTreeMap;
 
-use linalg::{Matrix, BaseMatrix, Vector};
+use linalg_serde::{Matrix, BaseMatrix, Vector};
 use learning::{LearningResult, SupModel};
 use learning::error::{Error, ErrorKind};
+
+extern crate serde;
+use self::serde::{Serialize, Deserialize};
 
 mod binary_tree;
 mod brute_force;
@@ -40,7 +43,7 @@ pub use self::binary_tree::{KDTree, BallTree};
 pub use self::brute_force::BruteForce;
 
 /// k-Nearest Neighbor Classifier
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct KNNClassifier<S: KNearestSearch> {
     k: usize,
 
@@ -54,7 +57,7 @@ impl Default for KNNClassifier<KDTree> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::KNNClassifier;
+    /// use rusty_machine_serde::learning::knn::KNNClassifier;
     /// let _ = KNNClassifier::default();
     /// ```
     fn default() -> Self {
@@ -73,7 +76,7 @@ impl KNNClassifier<KDTree> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::KNNClassifier;
+    /// use rusty_machine_serde::learning::knn::KNNClassifier;
     /// let _ = KNNClassifier::new(3);
     /// ```
     pub fn new(k: usize) -> Self {
@@ -92,7 +95,7 @@ impl<S: KNearestSearch> KNNClassifier<S> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::{KNNClassifier, BallTree};
+    /// use rusty_machine_serde::learning::knn::{KNNClassifier, BallTree};
     /// let _ = KNNClassifier::new_specified(3, BallTree::new(10));
     /// ```
     pub fn new_specified(k: usize, searcher: S) -> Self {

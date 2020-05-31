@@ -185,7 +185,7 @@ and `learning` moduled in this release.
 ### Breaking Changes
 
 - The `linalg` module pulled out and replaced by reexports of [rulinalg](https://github.com/AtheMathmo/rulinalg).
-All structs are now imported at the `linalg` level, i.e. `linalg::matrix::Matrix` -> `linalg::Matrix`.
+All structs are now imported at the `linalg` level, i.e. `linalg_serde::matrix::Matrix` -> `linalg_serde::Matrix`.
 - Decomposition methods now return `Result` instead of panicking on fail.
 - K-Means now has a trait for `Initializer` - which allows generic initialization algorithms.
 

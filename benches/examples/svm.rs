@@ -1,10 +1,10 @@
-use rusty_machine::learning::svm::SVM;
+use rusty_machine_serde::learning::svm::SVM;
 // Necessary for the training trait.
-use rusty_machine::learning::SupModel;
-use rusty_machine::learning::toolkit::kernel::HyperTan;
+use rusty_machine_serde::learning::SupModel;
+use rusty_machine_serde::learning::toolkit::kernel::HyperTan;
 
-use rusty_machine::linalg::Matrix;
-use rusty_machine::linalg::Vector;
+use rusty_machine_serde::linalg_serde::Matrix;
+use rusty_machine_serde::linalg_serde::Vector;
 
 use test::{Bencher, black_box};
 

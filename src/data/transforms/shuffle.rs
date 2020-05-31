@@ -7,9 +7,9 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::data::transforms::Transformer;
-//! use rusty_machine::data::transforms::shuffle::Shuffler;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::data::transforms::Transformer;
+//! use rusty_machine_serde::data::transforms::shuffle::Shuffler;
 //!
 //! // Create an input matrix that we want to shuffle
 //! let mat = Matrix::new(3, 2, vec![1.0, 2.0,
@@ -24,7 +24,7 @@
 //! ```
 
 use learning::LearningResult;
-use linalg::{Matrix, BaseMatrix, BaseMatrixMut};
+use linalg_serde::{Matrix, BaseMatrix, BaseMatrixMut};
 use super::Transformer;
 
 use rand::{Rng, thread_rng, ThreadRng};
@@ -45,10 +45,10 @@ impl<R: Rng> Shuffler<R> {
     ///
     /// ```
     /// # extern crate rand;
-    /// # extern crate rusty_machine;
+    /// # extern crate rusty_machine_serde;
     ///
-    /// use rusty_machine::data::transforms::Transformer;
-    /// use rusty_machine::data::transforms::shuffle::Shuffler;
+    /// use rusty_machine_serde::data::transforms::Transformer;
+    /// use rusty_machine_serde::data::transforms::shuffle::Shuffler;
     /// use rand::{StdRng, SeedableRng};
     ///
     /// # fn main() {
@@ -90,7 +90,7 @@ impl<R: Rng, T> Transformer<Matrix<T>> for Shuffler<R> {
 
 #[cfg(test)]
 mod tests {
-    use linalg::Matrix;
+    use linalg_serde::Matrix;
     use super::super::Transformer;
     use super::Shuffler;
 

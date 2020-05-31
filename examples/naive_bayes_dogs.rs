@@ -1,12 +1,12 @@
-extern crate rusty_machine;
+extern crate rusty_machine_serde;
 extern crate rand;
 
 use rand::Rand;
 use rand::distributions::Sample;
 use rand::distributions::normal::Normal;
-use rusty_machine::learning::naive_bayes::{self, NaiveBayes};
-use rusty_machine::linalg::{Matrix, BaseMatrix};
-use rusty_machine::learning::SupModel;
+use rusty_machine_serde::learning::naive_bayes::{self, NaiveBayes};
+use rusty_machine_serde::linalg_serde::{Matrix, BaseMatrix};
+use rusty_machine_serde::learning::SupModel;
 
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -1,6 +1,6 @@
-use rusty_machine::linalg::{Matrix, BaseMatrix};
-use rusty_machine::learning::k_means::KMeansClassifier;
-use rusty_machine::learning::UnSupModel;
+use rusty_machine_serde::linalg_serde::{Matrix, BaseMatrix};
+use rusty_machine_serde::learning::k_means::KMeansClassifier;
+use rusty_machine_serde::learning::UnSupModel;
 
 use rand::thread_rng;
 use rand::distributions::IndependentSample;

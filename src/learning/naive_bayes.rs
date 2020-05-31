@@ -9,9 +9,9 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::learning::naive_bayes::{NaiveBayes, Gaussian};
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::learning::SupModel;
+//! use rusty_machine_serde::learning::naive_bayes::{NaiveBayes, Gaussian};
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::learning::SupModel;
 //!
 //! let inputs = Matrix::new(6, 2, vec![1.0, 1.1,
 //!                                     1.1, 0.9,
@@ -40,10 +40,10 @@
 //! println!("Final outputs --\n{}", outputs);
 //! ```
 
-use linalg::{Matrix, Axes, BaseMatrix, BaseMatrixMut};
+use linalg_serde::{Matrix, Axes, BaseMatrix, BaseMatrixMut};
 use learning::{LearningResult, SupModel};
 use learning::error::{Error, ErrorKind};
-use rulinalg::utils;
+use rulinalg_serde::utils;
 
 use std::f64::consts::PI;
 
@@ -63,7 +63,7 @@ impl<T: Distribution> NaiveBayes<T> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::naive_bayes::{NaiveBayes, Gaussian};
+    /// use rusty_machine_serde::learning::naive_bayes::{NaiveBayes, Gaussian};
     ///
     /// // Create a new Gaussian Naive Bayes model.
     /// let _ = NaiveBayes::<Gaussian>::new();
@@ -452,7 +452,7 @@ mod tests {
 
     use learning::SupModel;
 
-    use linalg::Matrix;
+    use linalg_serde::Matrix;
 
     #[test]
     fn test_gaussian() {

@@ -10,11 +10,11 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::learning::svm::SVM;
-//! use rusty_machine::learning::SupModel;
+//! use rusty_machine_serde::learning::svm::SVM;
+//! use rusty_machine_serde::learning::SupModel;
 //!
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::linalg::Vector;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::linalg_serde::Vector;
 //!
 //! let inputs = Matrix::new(4,1,vec![1.0,3.0,5.0,7.0]);
 //! let targets = Vector::new(vec![-1.,-1.,1.,1.]);
@@ -33,8 +33,8 @@
 //! ```
 
 
-use linalg::{Matrix, BaseMatrix};
-use linalg::Vector;
+use linalg_serde::{Matrix, BaseMatrix};
+use linalg_serde::Vector;
 
 use learning::toolkit::kernel::{Kernel, SquaredExp};
 use learning::{LearningResult, SupModel};
@@ -83,8 +83,8 @@ impl<K: Kernel> SVM<K> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::svm::SVM;
-    /// use rusty_machine::learning::toolkit::kernel::SquaredExp;
+    /// use rusty_machine_serde::learning::svm::SVM;
+    /// use rusty_machine_serde::learning::toolkit::kernel::SquaredExp;
     ///
     /// let _ = SVM::new(SquaredExp::default(), 0.3);
     /// ```

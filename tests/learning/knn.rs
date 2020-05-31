@@ -1,4 +1,4 @@
-use rm::linalg::{Matrix, Vector};
+use rm::linalg_serde::{Matrix, Vector};
 use rm::learning::SupModel;
 use rm::learning::knn::KNNClassifier;
 
@@ -44,7 +44,7 @@ fn test_knn_long() {
 #[cfg(feature = "datasets")]
 pub mod tests_datasets {
 
-    use rm::linalg::{BaseMatrix, Vector};
+    use rm::linalg_serde::{BaseMatrix, Vector};
     use rm::learning::SupModel;
     use rm::learning::knn::{KNNClassifier, KDTree, BallTree, BruteForce};
     use rm::datasets::iris;

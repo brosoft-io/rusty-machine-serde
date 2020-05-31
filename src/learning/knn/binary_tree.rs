@@ -2,13 +2,16 @@
 use std::borrow::Borrow;
 use std::collections::VecDeque;
 
-use linalg::{Matrix, BaseMatrix, Vector};
+extern crate serde;
+use self::serde::{Serialize, Deserialize};
+
+use linalg_serde::{Matrix, BaseMatrix, Vector};
 use learning::error::Error;
 
 use super::{KNearest, KNearestSearch, get_distances, dist};
 
 /// Binary tree
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct BinaryTree<B: BinarySplit> {
     // Binary tree leaf size
     leafsize: usize,
@@ -25,7 +28,7 @@ impl<B: BinarySplit> Default for BinaryTree<B> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::{KDTree, BallTree};
+    /// use rusty_machine_serde::learning::knn::{KDTree, BallTree};
     /// let _ = KDTree::default();
     /// let _ = BallTree::default();
     /// ```
@@ -62,7 +65,7 @@ pub trait BinarySplit: Sized {
 }
 
 /// Kd-tree branch
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct KDTreeBranch {
     /// dimension (column) to split
     dim: usize,
@@ -83,7 +86,7 @@ pub struct KDTreeBranch {
 }
 
 /// Ball-tree branch
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct BallTreeBranch {
     /// dimension (column) to split
     dim: usize,
@@ -224,7 +227,7 @@ impl BinarySplit for BallTreeBranch {
 }
 
 /// Binary tree node (either branch or leaf)
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum Node<B: BinarySplit> {
     /// Binary tree branch
     Branch(B),
@@ -233,7 +236,7 @@ pub enum Node<B: BinarySplit> {
 }
 
 /// Binary tree leaf
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Leaf {
     children: Vec<usize>
 }
@@ -254,7 +257,7 @@ impl<B: BinarySplit> BinaryTree<B> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::knn::{KDTree, BallTree};
+    /// use rusty_machine_serde::learning::knn::{KDTree, BallTree};
     /// let _ = KDTree::new(10);
     /// let _ = BallTree::new(50);
     /// ```
@@ -468,7 +471,7 @@ fn max(data: &Matrix<f64>) -> Vector<f64> {
 #[cfg(test)]
 mod tests {
 
-    use linalg::{Vector, Matrix, BaseMatrix};
+    use linalg_serde::{Vector, Matrix, BaseMatrix};
     use super::super::KNearestSearch;
     use super::{KDTree, BallTree, min, max};
 

@@ -1,6 +1,6 @@
 //! Neural Network Layers
 
-use linalg::{Matrix, MatrixSlice, BaseMatrix};
+use linalg_serde::{Matrix, MatrixSlice, BaseMatrix};
 
 use learning::LearningResult;
 use learning::error::{Error, ErrorKind};

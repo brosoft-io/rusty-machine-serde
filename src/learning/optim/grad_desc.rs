@@ -9,9 +9,9 @@
 //! algorithms and git them into the same scheme easily.
 
 use learning::optim::{Optimizable, OptimAlgorithm};
-use linalg::Vector;
-use linalg::{Matrix, BaseMatrix};
-use rulinalg::utils;
+use linalg_serde::Vector;
+use linalg_serde::{Matrix, BaseMatrix};
+use rulinalg_serde::utils;
 
 use learning::toolkit::rand_utils;
 
@@ -50,7 +50,7 @@ impl GradientDesc {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::optim::grad_desc::GradientDesc;
+    /// use rusty_machine_serde::learning::optim::grad_desc::GradientDesc;
     ///
     /// let gd = GradientDesc::new(0.3, 10000);
     /// ```
@@ -137,7 +137,7 @@ impl StochasticGD {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::optim::grad_desc::StochasticGD;
+    /// use rusty_machine_serde::learning::optim::grad_desc::StochasticGD;
     ///
     /// let sgd = StochasticGD::new(0.1, 0.3, 5);
     /// ```
@@ -225,7 +225,7 @@ impl AdaGrad {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::optim::grad_desc::AdaGrad;
+    /// use rusty_machine_serde::learning::optim::grad_desc::AdaGrad;
     ///
     /// // Create a new AdaGrad algorithm with step size 0.5
     /// // and adaptive scaling constant 1.0
@@ -350,7 +350,7 @@ impl RMSProp {
     /// #Examples
     ///
     /// ```
-    /// use rusty_machine::learning::optim::grad_desc::RMSProp;
+    /// use rusty_machine_serde::learning::optim::grad_desc::RMSProp;
     ///
     /// let rms = RMSProp::new(0.99, 0.01, 1e-5, 20);
     /// ```

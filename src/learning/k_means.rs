@@ -5,9 +5,9 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::learning::k_means::KMeansClassifier;
-//! use rusty_machine::learning::UnSupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::learning::k_means::KMeansClassifier;
+//! use rusty_machine_serde::learning::UnSupModel;
 //!
 //! let inputs = Matrix::new(3, 2, vec![1.0, 2.0, 1.0, 3.0, 1.0, 4.0]);
 //! let test_inputs = Matrix::new(1, 2, vec![1.0, 3.5]);
@@ -42,7 +42,7 @@
 //!
 //! The [k-means++](https://en.wikipedia.org/wiki/K-means%2B%2B) scheme.
 
-use linalg::{Matrix, MatrixSlice, Axes, Vector, BaseMatrix};
+use linalg_serde::{Matrix, MatrixSlice, Axes, Vector, BaseMatrix};
 use learning::{LearningResult, UnSupModel};
 use learning::error::{Error, ErrorKind};
 
@@ -119,7 +119,7 @@ impl KMeansClassifier<KPlusPlus> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::k_means::KMeansClassifier;
+    /// use rusty_machine_serde::learning::k_means::KMeansClassifier;
     ///
     /// let model = KMeansClassifier::new(5);
     /// ```
@@ -142,7 +142,7 @@ impl<InitAlg: Initializer> KMeansClassifier<InitAlg> {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::k_means::{KMeansClassifier, Forgy};
+    /// use rusty_machine_serde::learning::k_means::{KMeansClassifier, Forgy};
     ///
     /// let model = KMeansClassifier::new_specified(5, 42, Forgy);
     /// ```

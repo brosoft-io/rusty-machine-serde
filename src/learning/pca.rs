@@ -5,10 +5,10 @@
 //! # Examples
 //!
 //! ```
-//! use rusty_machine::learning::pca::PCA;
-//! use rusty_machine::learning::UnSupModel;
+//! use rusty_machine_serde::learning::pca::PCA;
+//! use rusty_machine_serde::learning::UnSupModel;
 //!
-//! use rusty_machine::linalg::Matrix;
+//! use rusty_machine_serde::linalg_serde::Matrix;
 //! let mut pca = PCA::default();
 //!
 //! let inputs = Matrix::new(3, 2, vec![1., 0.1,
@@ -24,8 +24,8 @@
 //! assert_eq!(output, Matrix::new(1, 2, vec![-0.6686215718235227, 0.042826190364433595]));
 //! ```
 
-use linalg::{Matrix, BaseMatrix, Axes};
-use linalg::Vector;
+use linalg_serde::{Matrix, BaseMatrix, Axes};
+use linalg_serde::Vector;
 
 use learning::{LearningResult, UnSupModel};
 use learning::error::{Error, ErrorKind};
@@ -62,7 +62,7 @@ impl PCA {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::pca::PCA;
+    /// use rusty_machine_serde::learning::pca::PCA;
     ///
     /// let model = PCA::new(3, true);
     /// ```
@@ -99,7 +99,7 @@ impl PCA {
 /// # Examples
 ///
 /// ```
-/// use rusty_machine::learning::pca::PCA;
+/// use rusty_machine_serde::learning::pca::PCA;
 ///
 /// let model = PCA::default();
 /// ```
@@ -209,7 +209,7 @@ unsafe fn centering(inputs: &Matrix<f64>, centers: &Vector<f64>) -> Matrix<f64> 
 #[cfg(test)]
 mod tests {
 
-    use linalg::{Matrix, Axes, Vector};
+    use linalg_serde::{Matrix, Axes, Vector};
     use super::centering;
 
     #[test]

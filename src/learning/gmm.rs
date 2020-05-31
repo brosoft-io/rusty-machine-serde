@@ -5,9 +5,9 @@
 //! # Usage
 //!
 //! ```
-//! use rusty_machine::linalg::Matrix;
-//! use rusty_machine::learning::gmm::{CovOption, GaussianMixtureModel};
-//! use rusty_machine::learning::UnSupModel;
+//! use rusty_machine_serde::linalg_serde::Matrix;
+//! use rusty_machine_serde::learning::gmm::{CovOption, GaussianMixtureModel};
+//! use rusty_machine_serde::learning::UnSupModel;
 //!
 //! let inputs = Matrix::new(4, 2, vec![1.0, 2.0, -3.0, -3.0, 0.1, 1.5, -5.0, -2.5]);
 //! let test_inputs = Matrix::new(3, 2, vec![1.0, 2.0, 3.0, 2.9, -4.4, -2.5]);
@@ -30,9 +30,9 @@
 //! // Probabilities that each point comes from each Gaussian.
 //! println!("{:?}", post_probs.data());
 //! ```
-use linalg::{Matrix, MatrixSlice, Vector, BaseMatrix, BaseMatrixMut, Axes};
-use rulinalg::utils;
-use rulinalg::matrix::decomposition::{PartialPivLu};
+use linalg_serde::{Matrix, MatrixSlice, Vector, BaseMatrix, BaseMatrixMut, Axes};
+use rulinalg_serde::utils;
+use rulinalg_serde::matrix::decomposition::{PartialPivLu};
 
 use learning::{LearningResult, UnSupModel};
 use learning::toolkit::rand_utils;
@@ -124,7 +124,7 @@ impl GaussianMixtureModel {
     ///
     /// # Examples
     /// ```
-    /// use rusty_machine::learning::gmm::GaussianMixtureModel;
+    /// use rusty_machine_serde::learning::gmm::GaussianMixtureModel;
     ///
     /// let gmm = GaussianMixtureModel::new(3);
     /// ```
@@ -148,8 +148,8 @@ impl GaussianMixtureModel {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::gmm::GaussianMixtureModel;
-    /// use rusty_machine::linalg::Vector;
+    /// use rusty_machine_serde::learning::gmm::GaussianMixtureModel;
+    /// use rusty_machine_serde::linalg_serde::Vector;
     ///
     /// let mix_weights = Vector::new(vec![0.25, 0.25, 0.5]);
     ///
@@ -215,7 +215,7 @@ impl GaussianMixtureModel {
     /// # Examples
     ///
     /// ```
-    /// use rusty_machine::learning::gmm::GaussianMixtureModel;
+    /// use rusty_machine_serde::learning::gmm::GaussianMixtureModel;
     ///
     /// let mut gmm = GaussianMixtureModel::new(2);
     /// gmm.set_max_iters(5);
@@ -350,7 +350,7 @@ impl GaussianMixtureModel {
 #[cfg(test)]
 mod tests {
     use super::GaussianMixtureModel;
-    use linalg::Vector;
+    use linalg_serde::Vector;
 
     #[test]
     fn test_means_none() {
